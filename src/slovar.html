@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/output.css" type="text/css" rel="stylesheet">
+    <title>Ваш Дантист</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.4/cdn.js"></script>
+
+</head>
+
+<body  id="content" x-data="{ showTopMenu: true }" @scroll.window="showTopMenu = (window.scrollY < 50)">
+
+  <header>
+
+  
+      <!-- Main Menu -->
+      <nav class="bg-turquoise30/50 shadow-md fixed w-full z-20 backdrop-blur-lg transition-all duration-300" x-data="{ open: false }">
+          <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+              <div class="text-xl text-turquoise98 font-bold">Ваш Дантист</div>
+              <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+                <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+                  <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+                  <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+                  <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a>
+                  <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+                  <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+                  <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+                  <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+              </div>
+  
+              <button class="w-14 h-14 relative focus:outline-none bg-teal-600 rounded md:hidden navbar-toggle" id="toggle" @click="open = !open">
+                  <div class="block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <span class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
+                      <span class="block absolute h-0.5 w-5 text-white bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': open }"></span>
+                      <span class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+                  </div>
+              </button>
+          </div>
+  
+          <div class="navbar pt-60 md:hidden ">
+              <ul>
+                  <li><a href="index.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a></li>
+                  <li><a href="about.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a></li>
+                  <li><a href="doctors.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a></li>
+                  <li><a href="otzivi.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a></li>
+                  <li><a href="price.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a></li>
+                  <li><a href="safe.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a></li>
+                  <li><a href="faq.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a></li>
+                  <li><a href="slovar.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-2/3 after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Словарь</a></li>
+                  <li><a href="contacts.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a></li>
+              </ul>
+
+          </div>
+          <div id="bg-circle"></div>
+        </div>
+
+      </nav>
+  </header>
+
+    <section class="bgmain sm:py-8 lg:pb-20 lg:pt-32 py-20">
+      
+      <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <h1 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900 sm:text-3xl sm:leading-9 pb-4 text-center">Словарь</h1>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="allergy">Аллергия</dfn> - болезненное состояние организма человека, которое проявляется в непереносимости каких-либо веществ.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="alveolus">Альвеола</dfn> - лунка в альвеолярном отростке челюсти, в которой находится зуб.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="alveolitis">Альвеолит</dfn> - воспаление лунки удаленного зуба. Возникает чаще всего при осложненном удалении.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="alveolar_process">Альвеолярный отросток</dfn> - часть кости челюсти, в которой расположен зуб.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bite_anomaly">Аномалия прикуса</dfn> - неправильное смыкание зубных рядов.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bracket">Брекет</dfn> - ортодонтический элемент, приклеиваемый к передней поверхности зуба для удержания дуги.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bracket_system">Брекет-система</dfn> - несъемный ортодонтический аппарат, который состоит из опорной части - колец и брекетов, фиксирующихся на зубах и активной части - дуги, с помощью которой происходит перемещение зубов в трех плоскостях.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bruxism">Бруксизм</dfn> - непроизвольное, неконтролируемое сознанием сжатие и скрежетание зубами ночью (иногда днем). Чаще всего сопровождается повышенной стираемостью зубов и постепенной потерей эмали с жевательной поверхности.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bicycle_prosthesis">Бюгельный протез</dfn> - это частичный съемный протез, который состоит из искусственных зубов и искусственной десны. В бюгельной конструкции вместо широкой пластинки используется тонкая изящная металлическая дуга, благодаря которой пациент легче привыкает к протезу.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bicycle_prosthesis_with_attachments">Бюгельный протез с аттачменами</dfn> - крепится при помощи специальных замков (т.н. аттачменов) к металлокерамическим коронкам, которые устанавливаются на опорные зубы. Благодаря такому способу крепления достигается надежная фиксация протеза и хороший косметический результат (замков не видно, ибо они находятся внутри протеза).</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bicycle_prosthesis_with_clamps">Бюгельный протез с кламмерами</dfn> - крепится к опорным зубам при помощи специальных крючков (т.н. кламмеров).</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="veneer">Винир</dfn> - это несъемная изящная керамическая или композитная накладка, которая закрепляется с внешней стороны передних сломанных, потемневших или изменивших свое положение зубов.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="intracanal_post">Внутрикорневой штифт</dfn> - штифт, который вводится в корневой канал для улучшения фиксации пломбы или коронки зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="intraoral_incision">Внутриротовой разрез</dfn> - рассечение мягких тканей полости рта по поводу острого воспаления.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="guarantee">Гарантия</dfn> - обязательство, которое дается пациенту на выполненную врачом работу и используемые материалы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="hematoma">Гематома</dfn> - скопление крови в мягких тканях в результате травмы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="gingivitis">Гингивит</dfn> - воспаление тканей десны без вовлечения костной ткани.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="gingivectomy">Гингивотомия</dfn> - разрез в области десны.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="enamel_hypoplasia">Гипоплазия эмали</dfn> - нарушение нормального развития и созревания эмали в процессе формирования зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="deep_bite">Глубокий прикус</dfn> - аномалия, характеризующаяся значительным перекрытием нижних зубов (больше чем на половину коронки) верхними зубами.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="granuloma">Гранулема</dfn> - ограниченный участок воспаленной ткани у верхушки корня зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="gutta_percha">Гуттаперча</dfn> - специальный материал для пломбирования каналов зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="depulpation">Депульпация</dfn> - удаление пульпы (нерва) зуба в целях устранения воспаления или травмы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="diagnosis">Диагноз</dfn> - определение заболевания на основе жалоб пациента, данных осмотра врача и необходимых обследований.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="diagnostic_models">Диагностические модели</dfn> - гипсовые модели зубов, отлитые по индивидуальному слепку. Они необходимы для точных измерений и подбора элементов лечебной аппаратуры.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="distal_bite">Дистальный прикус</dfn> - аномалия, характеризующаяся выдвижением верхних зубов вперед или нижних зубов назад.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="distopied_tooth">Дистопированный зуб</dfn> - зуб, занимающий неправильное положение в зубном ряду (наклон, вне зубного ряда).</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="drainage">Дренаж</dfn> - резиновая полоска, которая помещается в разрез мягких тканей для предотвращения его закрытия, устанавливаемая для улучшения оттока экссудата.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="arc">Дуга</dfn> - активная часть аппарата, посредством активирования которой происходит перемещение зубов.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="brush">Ершик</dfn> - средство гигиены в виде цилиндрического или конического ершика для очистки ортопедических конструкций и широких межзубных промежутков.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="closed_curettage">Закрытый кюретаж зубодесневого кармана</dfn> - удаление глубоколежащего поддесневого зубного камня и воспаленной ткани в области зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="sealing_fissures">Запечатывание (герметизация) фиссур</dfn> - врачебная процедура, целью которой является введение в фиссуру зуба лечебного пломбировочного материала для предотвращения возникновения кариозного дефекта.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="tartar">Зубной камень</dfn> - твердое, известковое образование на поверхности зуба. Преимущественно располагается в пришеечной области зубов.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="dental_deposits">Зубные отложения</dfn> - твердый и мягкий микробный налет, плотно фиксирующийся на поверхности зубов вследствие недостаточной гигиены. Он является первичным фактором в развитии воспаления в тканях пародонта.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="dental_gum_pocket">Зубодесневой карман</dfn> - пространство между десной и зубом.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="tooth_immobilization">Иммобилизация зуба</dfn> - обездвиживание зуба при помощи шин, проволоки, стоматологического материала.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="implant">Имплантат (имплант)</dfn> - это, как правило, титановый стержень, который вживляется в челюсть и служит основой для установки металлокерамической коронки или другого протеза.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="excision_of_cap">Иссечение "капюшона" (перикоронарит)</dfn> - иссечение участка слизистой оболочки над прорезывающимся зубом. Как правило, под "капюшоном" периодически скапливается пища, микроорганизмы и постепенно развивается воспаление.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="cap">Каппа</dfn> - съемная конструкция, выполненная из специальной пластмассы разной степени твердости. Она покрывает зубы со всех сторон, соединяя их в единый блок. Это позволяет: защитить их от повышенной стираемости (ночное ношение); укрепить их при повышенной подвижности (пародонтоз); защищать от удара (боксерские шины) и т.д.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="caries">Кариес</dfn> - заболевание твердых тканей зуба, протекающее при обязательном присутствии микроорганизмов, в результате чего образуются функциональные и эстетические его дефекты.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="cyst">Киста</dfn> - полость в кости челюсти вокруг корня зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="wedge_defect">Клиновидный дефект</dfn> - разрушение твердых тканей зуба у его основания (шейки), возникающее в результате хронической перегрузки, чаще при бруксизме.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="coagulation">Коагуляция</dfn> – прижигание нагретым инструментом.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="composite">Композит</dfn> - вид пластмассы с высоким содержанием неорганического наполнителя.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="filling_correction">Коррекция пломбы</dfn> - удаление с помощью инструментов шероховатостей и нависающих краев пломбировочного материала.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="cofferdam">Коффердам</dfn> - специальная латексная пластина для изоляции зуба от остальной ротовой полости и слюны.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="core_inlay">Культевая вкладка</dfn> - литая конструкция, которая индивидуально изготавливается в лаборатории. Она фиксируется в каналах корня зуба для дальнейшего восстановления коронковой части зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="curettage">Кюретаж (лунки)</dfn> - выскабливание (вычищение) лунки зуба от грануляций, хронических очагов инфекции, инородных тел (пломбировочного материала, осколков зуба и т.д.)</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="ligation">Лигатура</dfn> - тонкая металлическая проволока или эластическое кольцо, посредством которых дуга фиксируется на брекетах.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="flap_surgery">Лоскутная операция</dfn> - операция по удалению воспаленной ткани, глубоколежащей под десной или зубным камнем осуществляется открытым доступом: проводится рассечение десны, удаление измененных тканей и ушивание десны.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="matrix">Матрица</dfn> - специальная лента чаще из целлулоида или металла, охватывающая зуб и помогающая формировать пломбу правильной формы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="mesial_bite">Мезиальный прикус</dfn> - аномалия, характеризующаяся передним положением нижней челюсти.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="local_anesthesia">Местная анестезия</dfn> - обезболивание одного или нескольких зубов путем введения в мягкие ткани обезболивающего лекарственного вещества.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bridge_prosthesis">Мостовидный протез</dfn> - это несъемная конструкция, состоящая из нескольких коронок или искусственных зубов, которая фиксируется на опорных зубах и восполняет недостающие между ними зубы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periosteum">Надкостница</dfn> - тонкий, плотный слой соединительной ткани, покрывающий сверху кость челюсти.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="obliteration">Облитерация</dfn> - сужение или закрытие просвета чего-либо, например, канала зуба, вследствие возрастных, воспалительных изменений, или проведенного ранее лечения.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="obturation">Обтурация</dfn> - заполнение корневого канала пломбировочным материалом (паста, гуттаперча).</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="single_ceramic_crown">Одиночная керамическая коронка</dfn> - это такая коронка, которая сделана из керамики и цементируется на предварительно обработанном зубе.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="single_metal_ceramic_crown">Одиночная металлокерамическая коронка</dfn> - это коронка, которая состоит из металлического каркаса, облицованного керамикой.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="surgery">Операция</dfn> - рассечение тканей, их иссечение или сшивание.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="orthodontics">Ортодонтия</dfn> - раздел стоматологии, который занимается профилактикой, диагностикой и лечением зубочелюстных деформаций.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="orthopedics">Ортопедия</dfn> - раздел стоматологии, занимающийся возмещением дефектов видимой части зубов, при отсутствии одного или нескольких зубов, при полной или частичной потере зубов.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="osteomyelitis">Остеомиелит</dfn> - воспаление костной ткани и костного мозга. Различают острый (клиника сходна с острым периодонтитом) и хронический. Требует интенсивной терапии в условиях стационара.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="whitening">Отбеливание</dfn> - изменение цвета зубов в светлую сторону под действием отбеливающих препаратов, чаще всего соединений пероксида водорода.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="edema">Отек</dfn> - скопление жидкости в мягких тканях в результате травмы или воспаления.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="open_curettage">Открытый кюретаж зубодесневого кармана</dfn> - удаление глубоколежащих зубных отложений и воспаленной ткани открытым доступом с рассечением десны, с последующим полированием поверхности корня зуба и ушиванием десны. Это делается в случае глубокого поражения тканей, окружающих зуб, обширного глубокого воспалительного процесса.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="open_bite">Открытый прикус</dfn> - аномалия, характеризующаяся отсутствием смыкания между верхними и нижними зубами, чаще в переднем отделе.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periodontitis">Пародонтит</dfn> - воспаление тканей, окружающих зуб, с вовлечением костной ткани.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periodontology">Пародонтология</dfn> - раздел стоматологии, изучающий норму и патологию, тканей, окружающих зуб.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="pathological_wear">Патологическая стираемость</dfn> - процесс повышенной стираемости эмали зубов, приводящий к уменьшению высоты клинической коронки зуба, иногда значительной. Происходит при потере зубов, причины возникновения пока не очень понятны.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="rebase">Перебазировка съемного протеза</dfn> - адаптация поверхности съемного протеза к изменившейся от длительного ношения протеза слизистой полости рта, путем нанесения нового слоя пластмассы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="pericoronitis">Перикоронарит</dfn> - воспаление мягких тканей из-за затрудненного прорезывания зуба. Чаще возникает в области зубов «мудрости», вследствие отсутствия места для полного прорезывания зуба, что приводит к травме мягких тканей при накусывании, нарушению процессов самоочищения и воспалению.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periodont">Периодонт</dfn> - сложный комплекс тканей из клеток и волокон, удерживающий зуб в костной лунке.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periodontitis">Периодонтит</dfn> - воспаление тканей периодонта. Причины возникновения: травма, осложнение кариеса.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periostitis">Периостит</dfn> - воспаление надкостницы, с образованием сначала серозного, затем гнойного очага между костью и надкостницей. Является осложнением периодонтита. Характеризуется появлением сильно выраженного отека мягких тканей, болями, значительными изменениями общего состояния. Требует неотложной хирургической помощи. Проводят периостотомию, общую терапию. Часто возникает временная нетрудоспособность на 3-5 дней.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="periostotomy">Периостотомия</dfn> - рассечение надкостницы с частичным отслоением от кости. Нередко сопровождается установкой дренажа.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="perforation">Перфорация</dfn> - отверстие, сообщение чего-либо с чем-либо. Чаще говорят о перфорациях дна полости зуба, его стенок или корня. Возникает как следствие кариозного процесса, либо осложнение при механической обработке тканей зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="complete_removable_prosthesis">Полный съемный протез</dfn> - это съемный протез, состоящий из 14 искусственных зубов, расположенных на широкой пластинке, изготовленной из пластмассы под цвет десны. Этот протез используется при полном отсутствии зубов на верхней или нижней челюсти.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="preparation">Препарирование</dfn> - иссечение твердых тканей зуба с помощью инструментов, боров или лазера.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="bite">Прикус</dfn> - смыкание верхнего и нижнего зубного ряда.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="pulp">Пульпа</dfn> - сосудисто-нервный пучок, находящийся в полости зуба - пульповой камере.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="pulpitis">Пульпит</dfn> - заболевание пульпы зуба (зубного нерва) воспалительного происхождения, протекающее чаще всего с присутствием микроорганизмов и продуктов их жизнедеятельности или в результате травмы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="radiovisiography">Радиовизиограф</dfn> - специальная дентальная система для получения рентгеновского изображения. В качестве устройства, принимающего рентгеновские лучи из рентгеновского аппарата используется электронный датчик или матрица, с последующим преобразованием в компьютере в изображение на мониторе.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="apex_resection">Резекция верхушки корня</dfn> - операция, которая проводится с целью удаления хронического очага инфекции у верхушки корня.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="resection">Резекция</dfn> - иссечение, удаление части кости или корня.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="reconstruction">Реконструкция</dfn> - изменение формы зуба, путем нанесения на него пломбировочного материала.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="restoration">Реставрация</dfn> - воссоздание формы зуба, утраченной в результате кариозного процесса или травмы.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="tooth_reposition">Репозиция зуба</dfn> - установка вывихнутого зуба в исходное положение.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="retainer">Ретейнер (ретенционный аппарат)</dfn> - аппарат, который закрепляет результат ортодонтического перемещения зубов. Это может быть пластмассовый съемный аппарат или несъемный металлический, который приклеивается на внутренней стороне зубов.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="retained_tooth">Ретинированный зуб</dfn> - непрорезавшийся зуб, находящийся в кости челюсти.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="gingival_retraction">Ретракция десны</dfn> - обнажение части корня зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="fistulous_passage">Свищевой ход</dfn> - канал в кости челюсти, соединяющий гранулему или кисту с полостью рта.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="impressions">Слепки</dfn> - отпечатки зубов, для получения которых используется специальный материал. С помощью слепков отливаются диагностические модели.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="mixed_bite">Сменный прикус</dfn> - период, когда молочные зубы меняются на постоянные. Это возраст от 5-6 до 12-13 лет.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="removal_of_dental_deposits">Снятие зубных отложений</dfn> - удаление поверхностнолежащего пигментного или микробного налета и зубного камня с коронковой или корневой части зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="dentistry">Стоматология</dfn> - наука, изучающая строение, функцию тканей полости рта и заболевания, проявляющиеся в зубочелюстной системе.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="gem">Страз</dfn> - украшение из золота, композита или керамики, приклеиваемое на переднюю поверхность зуба.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="removable_plate">Съемная пластинка</dfn> - ортодонтическая съемная конструкция, которая состоит из пластмассового основания, прилежащего к слизистой оболочке полости рта и зубам.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="removable_prosthesis_for_children">Съемный протез для детей</dfn> - съемный ортодонтическая конструкция для замещения у детей молочных или постоянных зубов, удаленных раньше срока.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="therapy">Терапия (в переводе - лечение)</dfn> - наука, изучающая причины возникновения, течения, способы лечения и предотвращения заболеваний.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="crown_trepanation">Трепанация коронки зуба</dfn> - иссечение тканей зуба для обеспечения доступа к корневым каналам.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="trismus">Тризм</dfn> - затрудненное (неполное) открывание рта в результате спазма (сокращения) жевательных мышц.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="depth_of_forest">Углубление преддверия полости рта</dfn> - операция, позволяющая перемещением мягких тканей создать углубление в преддверии полости рта.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="file">Файл</dfn> - тонкий металлический инструмент сложного строения для обработки стенок корневого канала. Бывает ручной или машинный (для наконечника).</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="fissure">Фиссура</dfn> - естественная борозда (углубление) в твердых тканях коронки зуба (эмали). Фиссуры с трудом поддаются гигиенической чистке, что ведет к скоплению микробов, и в дальнейшем к образованию кариозного дефекта.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="floss">Флосс (зубная нить)</dfn> - средство гигиены для чистки межзубных промежутков.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="functional_apparatus">Функциональные аппараты</dfn> - съемные аппараты, стимулирующие рост челюстей за счет нормализации функций мышц челюстно-лицевой области.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="surgery">Хирургия</dfn> - раздел медицины, изучающий заболевания, основным методом лечения которого является операция.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="partial_removable_prosthesis">Частичный съемный протез</dfn> - это съемный протез, который состоит из искусственных зубов, расположенных на пластинке, изготовленной из специальной пластмассы под цвет десны.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="tooth_splinting">Шинирование зуба</dfn> - устранение подвижности зуба, путем соединения его с другими.</p>
+        <p class="mb-4"><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="filling_polishing">Шлифовка пломбы</dfn> - сглаживание пломбы зуба и подгонка ее по прикусу пациента.</p>
+        <p><dfn class="text-base font-semibold leading-6 text-turquoise30 uppercase" id="exudate">Экссудат</dfn> - скопление тканевой жидкости (серозный), может содержать продукты микробов (гнойный), или кровь (геморрагический).</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad490927f80a88c22496609ef8f71beaa6bd7238fc096cc913e5427b9555a1dc5&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+
+
+<div class="bgg pt-4 sm:pt-10 lg:pt-12">
+  
+  <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    <div class="flex flex-col items-center border-t pt-6">
+      <!-- nav - start -->
+      <nav class="mb-4 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
+        <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+        <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+          <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+          <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+          <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a>
+          <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+          <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+          <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+          <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+      </nav>
+              <!-- nav - end -->
+
+
+    </div>
+
+    <div class="py-8 text-center text-sm text-white">© 2024 - lfoside.</div>
+  </footer>
+</div>
+
+
+   
+<script>
+  console.clear();
+
+const html = document.documentElement;
+const toggle = document.getElementById("toggle");
+const circle = document.getElementById("bg-circle");
+const circleWidth = circle.clientWidth;
+
+// Math calcul to get Height, Width, Diagonal and Circle Radius
+
+const getVpdr = () => {
+  const vph = Math.pow(html.offsetHeight, 2); // Height
+  const vpw = Math.pow(html.offsetWidth, 2); // Width
+  const vpd = Math.sqrt(vph + vpw); // Diagonal
+  return (vpd * 2) / circleWidth; // Circle radius
+};
+
+const openNavbar = () => {
+  const openTimeline = new TimelineMax();
+  openTimeline.to(".navbar", 0, { display: "flex" });
+  openTimeline.to("#bg-circle", 1.5, {scale: getVpdr(),ease: Expo.easeInOut});
+  openTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 25, opacity: 0 },{ y: 0, opacity: 1 },0.1,1);
+};
+
+const closeNavbar = () => {
+  const closeTimeline = new TimelineMax();
+  closeTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 0, opacity: 1, delay: 0.5 },{ y: 25, opacity: 0 },-0.1);
+  closeTimeline.to("#bg-circle", 1, {scale: 0,ease: Expo.easeInOut,delay: -0.5});
+  closeTimeline.to(".navbar", 0, { display: "none" });
+};
+
+let isOpen = false;
+
+toggle.onclick = function () {
+  if (isOpen) {
+    this.classList.remove("active");
+    closeNavbar();
+  } else {
+    this.classList.add("active");
+    openNavbar();
+  }
+  isOpen = !isOpen;
+};
+
+// On windows resize, recalcule circle radius and update
+
+window.onresize = () => {
+  if (isOpen) {
+    gsap.to("#bg-circle", 1, { scale: getVpdr(), ease: Expo.easeInOut });
+  }
+};
+
+
+</script>
+
+   
+
+</body>
+
+</html>

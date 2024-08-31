@@ -1,0 +1,546 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/output.css" type="text/css" rel="stylesheet">
+    <title>Ваш Дантист</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.4/cdn.js"></script>
+
+</head>
+
+<body id="content">
+    <!-- <section class="p-6 dark:bg-gray-100 dark:text-gray-800">
+        <div class="container grid gap-6 mx-auto text-center lg:grid-cols-2 xl:grid-cols-5">
+            <div class="w-full px-6 py-16 rounded-md sm:px-12 md:px-16 xl:col-span-2 dark:bg-gray-50">
+                <span class="block mb-2 dark:text-violet-600">Mamba design system</span>
+                <h1 class="text-5xl font-extrabold dark:text-gray-900">Build it with Mamba</h1>
+                <p class="my-8">
+                    <span class="font-medium dark:text-gray-900">Modular and versatile.</span>Fugit vero facilis dolor sit neque cupiditate minus esse accusamus cumque at.
+                </p>
+                <form novalidate="" action="" class="self-stretch space-y-3">
+                    <div>
+                        <label for="name" class="text-sm sr-only">Your name</label>
+                        <input id="name" type="text" placeholder="Your name" class="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300">
+                    </div>
+                    <div>
+                        <label for="lastname" class="text-sm sr-only">Email address</label>
+                        <input id="lastname" type="text" placeholder="Email address" class="w-full rounded-md focus:ring focus:dark:ring-violet-600 dark:border-gray-300">
+                    </div>
+                    <button type="button" class="w-full py-2 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Join the waitlist</button>
+                </form>
+            </div>
+            <img src="assets/images/cropped-hero.webp" alt="" class="object-cover w-full rounded-md xl:col-span-3 dark:bg-gray-500">
+        </div>
+    </section> -->
+
+<header class="">
+    <nav class="bg-turquoise30/50 shadow-md fixed w-full z-10 backdrop-blur-lg" x-data="{ open: false }">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center  md:px-8">
+            <div class="text-xl text-turquoise98 font-bold">Ваш Дантист</div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#hero" class="px-3 py-1 text-turquoise98    relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>
+                <a href="#about" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">О Клинике</a>
+                <a href="#services" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Наш Коллектив</a>
+                <a href="#contact" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Отзывы</a>
+                <a href="#contact" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Цены</a>
+                <a href="#contact" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Безопасность</a>
+                <a href="#contact" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Вопросы и Ответы</a>
+                <a href="#contact" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Словарь</a>
+                <a href="#contact" class="px-3 py-1 text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Контакты</a>
+            </div>
+
+            <button class="w-14 h-14 relative focus:outline-none bg-teal-600 rounded md:hidden navbar-toggle" id="toggle" @click="open = !open">
+              <div class="block w-5 absolute left-6 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
+                  <span  class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
+                  <span  class="block absolute  h-0.5 w-5 text-white bg-current   transform transition duration-500 ease-in-out" :class="{'opacity-0': open } "></span>
+                  <span  class="block absolute  h-0.5 w-7 text-white bg-current transform  transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+              </div>
+          </button>
+
+             
+  
+              
+
+
+            </div>
+
+        </div>
+        <div class="navbar pt-60 md:hidden">
+          <ul>
+            <li><a href="#hero" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Главная</a></li>
+            <li> <a href="#about" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">О Клинике</a></li>
+            <li><a href="#services" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Наш Коллектив</a></li>
+            <li><a href="#contact" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Отзывы</a></li>
+            <li><a href="#contact" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Цены</a></li>
+            <li> <a href="#contact" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Безопасность</a></li>
+            <li><a href="#contact" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Вопросы и Ответы</a></li>
+            <li>  <a href="#contact" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Словарь</a></li>
+            <li>  <a href="#contact" class="text-turquoise98  relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer ">Контакты</a></li>
+          </ul>
+      </div>
+        <div id="bg-circle"></div>
+      </div>
+    </nav>
+
+
+
+</header>
+<!-- hero -->
+<section class="text-gray-600 body-font bgg">
+
+  <div class="absolute left-0 bottom-0 pb-4 px-4 hidden lg:block">
+    <p class="text-center text-xl font-semibold text-white ">г.Ногинск, ул.Рогожская, д.117, секция 4,помещение 3   
+  </p>
+  </div> 
+  <!-- <div class="absolute rigt-0 top-0 pt-20 px-4 hidden lg:block font-semibold">
+    <p class="text-center text-xl text-white ">8 (985) 731-73-27
+  </p>    
+  <p class="text-center text-xl text-white ">8 (985) 731-33-57 </p>
+
+  </div>  -->
+
+  <div class="container mx-auto flex px-5  md:flex-row flex-col items-center lg:min-h-dvh">
+    <section class="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden   pt-16  md:py-20 xl:py-48">
+      <!-- image - start -->
+      <!-- image - end -->
+
+      <!-- overlay - start -->
+      <!-- overlay - end -->
+
+      <!-- text start -->
+      <div class="relative flex flex-col items-center p-4 sm:max-w-xl">
+          <p class="mb-4 text-center font-bold text-2xl text-indigo-200 sm:text-3xl md:mb-8">Современная<br>
+
+          Стоматология в Ногинске</p>
+        <h1 class="mb-8 text-center text-4xl font-bold  text-white sm:text-5xl md:mb-12 md:text-6xl">Ваш Дантист Плюс</h1>
+
+        <div class="b mx-auto h-16 w-64 flex justify-center items-center">
+          <div class="i h-12 w-64 bg-gradient-to-br from-indigo-400 to-indigo-600 items-center rounded-full shadow-xl cursor-pointer absolute overflow-hidden transform hover:scale-x-110 hover:scale-y-105 transition duration-300 ease-out">
+          </div>
+          <a class="text-center text-white font-semibold z-10 pointer-events-none">Записаться</a>
+        </div>   
+      </div>
+      <!-- text end -->
+    </section>
+    <div class="lg:max-w-3xl lg:w-full md:w-1/2 w-5/6  lg:self-end">
+      <img  alt="hero" src="assets/images/cropped-hero.webp">
+    </div>
+  </div>
+</section>
+ 
+<main>
+
+
+<!-- features -->
+
+<!-- features -->
+
+
+<section class=" py-6 sm:py-8 lg:py-12">
+
+<div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+  <div class="flex flex-col md:flex-row items-start  overflow-y-visible" >
+      <div class="w-full md:w-1/2 relative">
+          <div class="dots absolute -top-12 -left-24 h-auto object-cover min-h-52 min-w-52 -z-20"></div>
+          <img src="assets/images/clinic.webp" alt="Team collaboration" class="w-full h-auto object-cover max-h-[451px] max-w-[576px] ">
+          <div class="absolute -bottom-6 -right-2 lg:right-48 bg-turquoise15 text-center font-semibold leading-4 text-white">
+            <p class="p-4">
+            Московская область, г. Ногинск<br />ул. Рогожская, 117, сек. 4
+          </p>
+          <!-- <p class="">
+            8 (985) 731-73-27
+          </p>
+          <p class="pb-4">
+            8 (985) 731-73-27
+          </p> -->
+          </div>
+
+      </div>
+
+      <div class="w-full md:w-1/2 ">
+
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <p class="text-base font-semibold leading-6 text-turquoise30 uppercase">
+              О Нас
+          </p>
+          <h4 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">
+            Почему нам доверяют?
+          </h4>
+        <ul class="gap-6 mt-8 md:grid md:grid-cols-2">
+          <li class="mt-6 lg:mt-0">
+              <div class="flex">
+                  <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full  ">
+                      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                          </path>
+                      </svg>
+                  </span>
+                  <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                    Долговременные гарантии на все виды работ
+                  </span>
+              </div>
+          </li>
+          <li class="mt-6 lg:mt-0">
+              <div class="flex">
+                  <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                          </path>
+                      </svg>
+                  </span>
+                  <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                    Удобное время работы с 9:00 до 20:00
+                  </span>
+              </div>
+          </li>
+          <li class="mt-6 lg:mt-0">
+              <div class="flex">
+                  <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                          </path>
+                      </svg>
+                  </span>
+                  <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                    Удобное расположение в центре города
+                  </span>
+              </div>
+          </li>
+          <li class="mt-6 lg:mt-0">
+              <div class="flex">
+                  <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                      <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                          </path>
+                      </svg>
+                  </span>
+                  <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                      Бесплатные профилактические осмотры один раз в полгода для постоянных клиентов
+                  </span>
+              </div>
+          </li>
+        </ul>
+        
+      </div>
+      <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+
+        <h4 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">
+          Контактная информация
+        </h4>
+      <ul class="gap-6 mt-8 md:grid md:grid-cols-2">
+        <li class="mt-6 lg:mt-0  col-span-2 ">
+            <div class="flex ">
+                <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full  ">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                        </path>
+                    </svg>
+                </span>
+                <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                  Московская область, г. Ногинск
+ул. Рогожская, 117, сек. 4
+                </span>
+            </div>
+        </li>
+
+        <li class="mt-6 lg:mt-0">
+            <div class="flex">
+                <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                        </path>
+                    </svg>
+                </span>
+                <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                  8 (985) 731-73-27
+
+
+                </span>
+            </div>
+        </li>
+        <li class="mt-6 lg:mt-0">
+            <div class="flex">
+                <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                    <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                        </path>
+                    </svg>
+                </span>
+                <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                  8 (967) 289-03-08
+                </span>
+            </div>
+        </li>
+      </ul>
+      
+    </div>
+    </div>
+      <!-- <div class="w-full md:w-1/2 p-8" data-pc-el-id="div-16-48">
+          <div class="testimonial-carousel relative" data-pc-el-id="div-17-42">
+              <div class="testimonial-slide" data-pc-el-id="div-18-23">
+                  <blockquote class="text-xl italic font-semibold text-gray-900" data-pc-el-id="blockquote-19-21">
+                      <p data-pc-el-id="p-20-20">"This product lorem has completely transformed our workflow. It's intuitive, powerful, and a joy to use every day."</p>
+                  </blockquote>
+                  <p class="mt-4 text-gray-600" data-pc-el-id="p-22-22">- Sarah Johnson, CEO of TechInnovate</p>
+              </div>
+              <div class="testimonial-slide hidden" data-pc-el-id="div-24-29">
+                  <blockquote class="text-xl italic font-semibold text-gray-900" data-pc-el-id="blockquote-25-27">
+                      <p data-pc-el-id="p-26-26">"The customer support team is exceptional. They've gone above and beyond to ensure our success."</p>
+                  </blockquote>
+                  <p class="mt-4 text-gray-600" data-pc-el-id="p-28-28">- Michael Chen, CTO of DataDrive</p>
+              </div>
+              <div class="testimonial-slide hidden" data-pc-el-id="div-30-35">
+                  <blockquote class="text-xl italic font-semibold text-gray-900" data-pc-el-id="blockquote-31-33">
+                      <p data-pc-el-id="p-32-32">"We've seen a 40% increase in productivity since implementing this solution. It's been a game-changer for us."</p>
+                  </blockquote>
+                  <p class="mt-4 text-gray-600" data-pc-el-id="p-34-34">- Emily Rodriguez, Operations Manager at GlobalTech</p>
+              </div>
+              <button class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white rounded-full p-2 ml-2 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="prevBtn" aria-label="Previous testimonial" data-pc-el-id="button-36-38">
+                  <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-pc-el-id="svg-37-37"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" data-pc-el-id="path-37-37"></path></svg>
+              </button>
+              <button class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white rounded-full p-2 mr-2 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="nextBtn" aria-label="Next testimonial" data-pc-el-id="button-39-41">
+                  <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-pc-el-id="svg-40-40"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" data-pc-el-id="path-40-40"></path></svg>
+              </button>
+          </div>
+          <div class="flex justify-center mt-4" data-pc-el-id="div-43-47">
+              <button class="h-2 w-2 rounded-full bg-blue-500 mx-1 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Go to slide 1" data-pc-el-id="button-44-44"></button>
+              <button class="h-2 w-2 rounded-full bg-gray-300 mx-1 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Go to slide 2" data-pc-el-id="button-45-45"></button>
+              <button class="h-2 w-2 rounded-full bg-gray-300 mx-1 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Go to slide 3" data-pc-el-id="button-46-46"></button>
+          </div>
+      </div> -->
+  </div>
+  
+</div>
+
+
+</section>
+    
+
+
+
+
+
+<!-- About -->
+    <section class="bgmain py-6 sm:py-8 lg:py-12">
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+              <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+                <div>
+                  <div class="h-64 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=600&h=750" loading="lazy" alt="Photo by Martin Sanchez" class="h-full w-full object-cover object-center" />
+                  </div>
+                </div>
+          
+                <div class="md:pt-8">
+                  <p class="text-center font-bold text-indigo-500 md:text-left">О нас</p>
+          
+                  <h1 class="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6 md:text-left">“Ваш Дантист Плюс”
+                  </h1>
+          
+                  <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                    Прежде всего, это гарантированно высокое качество лечения. Все работающие у нас стоматологи – профессионалы высокого уровня, имеющие многолетний практический опыт работы. Этот факт подтверждают многочисленные пациенты, которые рекомендуют нас своим близким и друзьям.
+                    <br /><br />
+          
+                    Врачи нашей стоматологической клиники не просто уникальные специалисты и виртуозы своего дела, они — коллектив единомышленников, предлагающих комплексное решение любых по сложности задач. Мы не только предоставляем качественное лечение, но и создаем комфортную и уютную атмосферу для наших пациентов, которая помогает избавиться от неприятных мыслей. Посещение стоматологии «Ваш Дантист Плюс»– это настоящее удовольствие без страхов, боли и волнений.                  </p>
+          
+                  <h2 class="mb-2 text-center text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4 md:text-left">About us</h2>
+          
+                  <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                    Наша клиника оснащена современным медицинским оборудованием, а в работе мы используем лучшие лекарственные препараты, самые качественные, надежные и       <a href="#" class="text-indigo-500 underline transition duration-100 hover:text-indigo-600 active:text-indigo-700">безопасные</a> 
+                    материалы. Если Вы заботитесь о здоровье и красоте своих зубов и хотите всегда получать качественное лечение, обращайтесь только к специалистам высокой квалификации. Нашим врачам Вы можете доверить любую проблему с зубами и ожидать исключительно качественного результата. Лечением зубов, протезированием, эстетической коррекцией зубов в нашей стоматологии занимаются профессиональные врачи, которые имеют богатый опыт работы. Обращаясь в нашу клинику, Вы всегда можете рассчитывать на максимальное внимание, понимание и доброжелательность персонала
+                  </p>
+                  <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                    Стоматологическая клиника «Ваш Дантист Плюс» поможет вам обрести и сохранить здоровье, красоту и комфорт на долгие годы, а время лечения пройдет легко и приятно. Приходите, мы ждем вас!
+                  </p>
+                  <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                    материалы. Если Вы заботитесь о здоровье и красоте своих зубов и хотите всегда получать качественное лечение, обращайтесь только к специалистам высокой квалификации. Нашим врачам Вы можете доверить любую проблему с зубами и ожидать исключительно качественного результата. Лечением зубов, протезированием, эстетической коррекцией зубов в нашей стоматологии занимаются профессиональные врачи, которые имеют богатый опыт работы. Обращаясь в нашу клинику, Вы всегда можете рассчитывать на максимальное внимание, понимание и доброжелательность персонала
+                  </p>
+                </div>
+              </div>
+            </div>
+      </section>
+
+      
+<!-- servises -->
+      <section class="py-4 px-2 mx-auto max-w-screen-2xl sm:py-4 lg:px-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full">
+            <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
+              <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                <img src="assets/images/hygiene.webp" loading="lazy" decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Профилактика и гигиена</h3>
+              </a>
+            </div>
+            <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-stone-50">
+              <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4">
+                <img src="assets/images/paradontology.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover  group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Пародонтология</h3>
+              </a>
+              <div class="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+                <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                  <img src="assets/images/endodontics.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500 ease-in-out">
+                  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                  <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Эндодонтия</h3>
+                </a>
+                <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                  <img src="assets/images/therapy.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                  <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Терапия</h3>
+                </a>
+              </div>
+            </div>
+            <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-sky-50 h-auto md:h-full flex flex-col">
+              <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                <img src="assets/images/consult.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Консультация</h3>
+              </a>
+            </div>
+
+            <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-gray-50 h-auto md:h-full flex flex-col">
+                <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                  <img src="assets/images/whitening.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                  <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Отбеливание</h3>
+                </a>
+              </div>
+        
+        
+              <div class="col-span-2 sm:col-span-2 md:col-span-2 bg-stone-50">
+                <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4">
+                  <img src="assets/images/orthopedia.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                  <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Ортопедия</h3>
+                </a>
+        
+                
+                <div class="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+                  <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                    <img src="assets/images/OralSurgery.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                    <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Хирургия</h3>
+                  </a>
+                  <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                    <img src="assets/images/implantation.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                    <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Имплантация</h3>
+                  </a>
+                </div>
+              </div>
+              <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
+                <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                  <img src="assets/images/MouthGuard.webp" loading="lazy"  decoding="async" alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                  <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                  <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Спортивные каппы</h3>
+                </a>
+              </div>
+        </div>
+
+<!---------------------------------------------------------------------------------- -->
+
+
+
+
+      </section>
+</main>
+
+
+<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad490927f80a88c22496609ef8f71beaa6bd7238fc096cc913e5427b9555a1dc5&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+
+
+<div class="bg-white pt-4 sm:pt-10 lg:pt-12">
+  
+    <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="flex flex-col items-center border-t pt-6">
+        <!-- nav - start -->
+        <nav class="mb-4 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
+          <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Главная</a>
+          <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">О Клинике</a>
+          <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Наш Коллектив
+        </a>
+          <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Цены
+        </a>
+          <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Безопасность
+        </a>
+        <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Вопросы и Ответы
+        </a>
+        <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Словарь
+        </a>
+        <a href="#" class="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Контакты
+        </a>
+        </nav>
+                <!-- nav - end -->
+  
+
+      </div>
+  
+      <div class="py-8 text-center text-sm text-gray-400">© 2024 - lfoside.</div>
+    </footer>
+  </div>
+
+
+   
+<script>
+  console.clear();
+
+const html = document.documentElement;
+const toggle = document.getElementById("toggle");
+const circle = document.getElementById("bg-circle");
+const circleWidth = circle.clientWidth;
+
+// Math calcul to get Height, Width, Diagonal and Circle Radius
+
+const getVpdr = () => {
+  const vph = Math.pow(html.offsetHeight, 2); // Height
+  const vpw = Math.pow(html.offsetWidth, 2); // Width
+  const vpd = Math.sqrt(vph + vpw); // Diagonal
+  return (vpd * 2) / circleWidth; // Circle radius
+};
+
+const openNavbar = () => {
+  const openTimeline = new TimelineMax();
+  openTimeline.to(".navbar", 0, { display: "flex" });
+  openTimeline.to("#bg-circle", 1.5, {scale: getVpdr(),ease: Expo.easeInOut});
+  openTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 25, opacity: 0 },{ y: 0, opacity: 1 },0.1,1);
+};
+
+const closeNavbar = () => {
+  const closeTimeline = new TimelineMax();
+  closeTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 0, opacity: 1, delay: 0.5 },{ y: 25, opacity: 0 },-0.1);
+  closeTimeline.to("#bg-circle", 1, {scale: 0,ease: Expo.easeInOut,delay: -0.5});
+  closeTimeline.to(".navbar", 0, { display: "none" });
+};
+
+let isOpen = false;
+
+toggle.onclick = function () {
+  if (isOpen) {
+    this.classList.remove("active");
+    closeNavbar();
+  } else {
+    this.classList.add("active");
+    openNavbar();
+  }
+  isOpen = !isOpen;
+};
+
+// On windows resize, recalcule circle radius and update
+
+window.onresize = () => {
+  if (isOpen) {
+    gsap.to("#bg-circle", 1, { scale: getVpdr(), ease: Expo.easeInOut });
+  }
+};
+
+
+</script>
+</body>
+
+</html>

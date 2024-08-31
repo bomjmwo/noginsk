@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/output.css" type="text/css" rel="stylesheet">
+    <title>Стоматология в Ногинске, стоматологическая клиника в Ногинске, услуги, цены - стоматология Ваш Дантист Плюс (Ногинск)</title>
+    <meta name="description" content="Стоматологическая клиника Ваш Дантист в Ногинске на ул. Рогожская! Полный спектр услуг: терапия, отбеливание, ортопедия, пародонтология, хирургия, профилактика. Звоните +7 (967) 289-03-08 - стоматология Ваш Дантист Плюс (Ногинск)" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.4/cdn.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+</head>
+<style>
+  
+ 
+  
+ 
+ 
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .page {
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    min-height: 100%;
+    z-index: 1;
+  }
+  
+  .h1 {
+    font-size: 54px;
+    color: #f4f4f4;
+    font-weight: 300;
+  }
+  @media (max-width: 1180px) {
+    .h1 {
+      font-size: 30px;
+    }
+  }
+  
+  .text {
+    font-size: 18px;
+  }
+  @media (max-width: 1180px) {
+    .text {
+      font-size: 16px;
+    }
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: fixed;
+    background-color: #014649;
+    z-index: 99;
+  }
+  .header__logo {
+    flex-basis: 250px;
+    align-self: center;
+    padding-left: 50px;
+  }
+  @media (max-width: 1180px) {
+    .header__logo {
+      flex-basis: 180px;
+      padding-left: 20px;
+    }
+  }
+  .header__nav {
+    flex-basis: calc(100% - 400px);
+    padding: 25px 0;
+  }
+  .header__button-container {
+    flex-basis: 250px;
+    margin-left: auto;
+  }
+  @media (max-width: 1180px) {
+    .header__button-container {
+      flex-basis: 200px;
+    }
+  }
+  
+  .logo {
+    position: relative;
+    color: #f4f4f4;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .logo:after {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 130px;
+    display: block;
+    margin-left: 10px;
+    width: 45px;
+    height: 14px;
+    background-color: #f4f4f4;
+    border-radius: 30px;
+    transform: translateY(-50%);
+  }
+  @media (max-width: 1180px) {
+    .logo:after {
+      left: 100px;
+    }
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+  }
+  @media (max-width: 1180px) {
+    .nav {
+      margin-left: 20px;
+    }
+  }
+  .nav__item {
+    cursor: pointer;
+  }
+  .nav__item:nth-of-type(n+2) {
+    margin-left: 50px;
+  }
+  @media (max-width: 1180px) {
+    .nav__item:nth-of-type(n+2) {
+      margin-left: 20px;
+    }
+  }
+  .nav__item-link {
+    color: rgba(244, 244, 244, 0.7);
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.5s ease;
+  }
+  
+  .nav__item-link:hover {
+    color: #f4f4f4;
+  }
+  
+  .hero {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .hero:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 1s cubic-bezier(0.22, 0.4, 0.36, 0.99);
+    background-color: #029297;
+    border-bottom-right-radius: 50px;
+  }
+  .hero__curtain {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90%;
+    width: 100%;
+    transform: translateZ(0);
+  }
+  .hero__curtain-1 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 50px;
+    background-color: #2dcfe7;
+    transform: translateX(-100%) translateZ(0);
+    transition: transform 1.1s cubic-bezier(0.22, 0.7, 0.36, 0.99) 0.35s, opacity 1s cubic-bezier(0.22, 0.7, 0.36, 0.99) 1s;
+  }
+  .hero__curtain-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #014649;
+    transform: translateX(-100%) translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.22, 0.7, 0.76, 0.99) 0.6666666667s;
+  }
+  .hero__diagonal {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #014649;
+    transform: rotateZ(0) scaleY(1) translateZ(0);
+    transform-origin: right bottom;
+    transition: transform 0.5s cubic-bezier(0.22, 0.7, 0.76, 0.99) 1s;
+  }
+  .hero__content {
+    position: relative;
+    max-width: 960px;
+    width: 100%;
+    margin: 200px auto;
+    background-color: transparent;
+    text-align: center;
+    transform: translateZ(20px);
+  }
+  .hero__content-title {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30%);
+    transition: opacity 1s cubic-bezier(0.22, 0.7, 0.76, 0.99) 1.75s, transform 1s cubic-bezier(0.22, 0.7, 0.76, 0.99) 1.75s;
+  }
+  .hero__content-text {
+    margin-top: -15px;
+    color: #f4f4f4;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: opacity 1s cubic-bezier(0.22, 0.7, 0.76, 0.99) 2.45s, transform 1s cubic-bezier(0.22, 0.7, 0.76, 0.99) 2.45s;
+  }
+  @media (max-width: 1180px) {
+    .hero__content-text {
+      margin-top: 0;
+    }
+  }
+  .hero__button-container {
+    margin: 30px auto 0;
+    max-width: 220px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.22, 0.7, 0.76, 0.99) 3.15s;
+  }
+  .hero.animate:before {
+    transform: translateX(0);
+  }
+  .hero.animate .hero__curtain-1 {
+    opacity: 0.3;
+    transform: translateX(0) translateZ(0);
+  }
+  .hero.animate .hero__curtain-2 {
+    opacity: 1;
+    background-color: #014649;
+    transform: translateX(-80%) translateZ(0);
+  }
+  .hero.animate .hero__diagonal {
+    transform: rotateZ(58deg) scaleY(5) translateZ(0);
+  }
+  .hero.animate .hero__content-title, .hero.animate .hero__content-text {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hero.animate .hero__button-container {
+    opacity: 1;
+  }
+  .hero.animate .hero__button-container .button:before {
+    transform: scaleX(1);
+  }
+  
+  .button {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+    padding: 17px 10px;
+  }
+  .button--white {
+    background-color: #f4f4f4;
+  }
+  .button--blue {
+    background-color: #2dcfe7;
+  }
+  .button--bottom-left-b {
+    border-bottom-left-radius: 30px;
+  }
+  .button--top-left-b {
+    border-top-left-radius: 30px;
+  }
+  .button__text {
+    position: relative;
+    color: #014649;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    z-index: 2;
+    transition: color 0.5s ease;
+  }
+  .button__text--white {
+    color: #f4f4f4;
+  }
+  .button--hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .button--hero:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f4f4f4;
+    z-index: 1;
+    transform: scaleX(0);
+    transition: transform 1s cubic-bezier(0.22, 0.7, 0.76, 0.99) 3.15s, background-color 0.5s ease;
+  }
+  
+  .button:hover {
+    background-color: #2dcfe7;
+  }
+  .button:hover .button__text {
+    color: #f4f4f4;
+  }
+  
+  .button--hero:hover:before {
+    background-color: #2dcfe7;
+  }
+  .button--hero:hover .button__text {
+    color: #f4f4f4;
+  }
+  
+  .button--blue:hover {
+    background-color: #f4f4f4;
+  }
+  .button--blue:hover .button__text--white {
+    color: #014649;
+  }</style>
+<body  id="content" x-data="{ showTopMenu: true }" @scroll.window="showTopMenu = (window.scrollY < 50)">
+
+
+<!-- inpired by this dribbble shot: https://dribbble.com/shots/3505747-Pay-By-Drapo -->
+
+<div class="wrapper">
+    <header class="header js-header">
+      <div class="header__logo logo">logo</div>
+      <ul class="header__nav nav">
+        <li class="nav__item">
+          <a href="#" class="nav__item-link">Security</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__item-link">Tariffs</a>
+        </li>
+        <li class="nav__item">
+          <a href="tel:#" class="nav__item-link">01 56 71 43 99</a>
+        </li>
+      </ul>
+      <div class="header__button-container">
+        <button class="button button--blue button--bottom-left-b">
+          <span class="button__text button__text--white">Контакты</span>
+        </button>
+      </div>
+    </header>
+  
+    <main class="page">
+      <div class="hero js-hero">
+        <div class="hero__curtain ">
+                <img  alt="hero" src="assets/images/cropped-hero.webp" class="absolute bottom-0 right-0 z-20">
+          <div class="hero__curtain-1"></div>
+          <div class="hero__curtain-2">
+            <div class="hero__diagonal"></div>
+          </div>
+        </div>
+  
+        <section class="hero__content">
+          <h1 class="hero__content-title h1">Современная Стоматология в Ногинске.</h1>
+          <p class="hero__content-text text text--white text--hero">Стоматология работает с 9:00 до 20:00 без выходных.
+
+          </p>
+          <div class="hero__button-container">
+            <button class="button button--hero button--top-left-b">
+              <span class="button__text">Записаться</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+
+  <main>
+
+
+    <section class=" ">
+    
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="flex flex-col md:flex-row items-start  overflow-y-visible" >
+          <div class="w-full md:w-1/2 relative">
+              <!-- <div class="dots absolute -top-12 -left-24 h-auto object-cover min-h-52 min-w-52 -z-20"></div>
+              <img src="assets/images/clinic.webp" alt="Team collaboration" class="w-full h-auto object-cover max-h-[451px] max-w-[576px] ">
+              <div class="absolute -bottom-6 -right-2 lg:right-48 bg-turquoise15 text-center font-semibold leading-4 text-white">
+                <p class="p-4">
+                Московская область, г. Ногинск<br />ул. Рогожская, 117, сек. 4
+              </p>
+              <p class="">
+                8 (985) 731-73-27
+              </p>
+              <p class="pb-4">
+                8 (985) 731-73-27
+              </p>
+              </div> -->
+              <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <p class="text-base font-semibold leading-6 text-turquoise30 uppercase">
+                    О Нас
+                </p>
+                <h2 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">
+                  Почему нам доверяют?
+                </h2>
+              <ul class="gap-6 mt-8 md:grid md:grid-cols-2">
+                <li class="mt-6 lg:mt-0">
+                    <div class="flex">
+                        <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full  ">
+                            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                          Долговременные гарантии на все виды работ
+                        </span>
+                    </div>
+                </li>
+                <li class="mt-6 lg:mt-0">
+                    <div class="flex">
+                        <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                          Удобное время работы с 9:00 до 20:00
+                        </span>
+                    </div>
+                </li>
+                <li class="mt-6 lg:mt-0">
+                    <div class="flex">
+                        <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                          Удобное расположение в центре города
+                        </span>
+                    </div>
+                </li>
+                <li class="mt-6 lg:mt-0">
+                    <div class="flex">
+                        <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                            Бесплатные профилактические осмотры один раз в полгода для постоянных клиентов
+                        </span>
+                    </div>
+                </li>
+              </ul>
+              
+            </div>
+          </div>
+    
+          <div class="w-full md:w-1/2 ">
+    
+            <!-- <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+              <p class="text-base font-semibold leading-6 text-turquoise30 uppercase">
+                  О Нас
+              </p>
+              <h4 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">
+                Вот что говорят клиенты:
+              </h4>
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img class="object-cover w-full h-96" src="assets/images/min/consult.webp"
+                            alt="image" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="object-cover w-full h-96" src="assets/images/min/endodontics.webp"
+                            alt="image" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img class="object-cover w-full h-96" src="assets/images//min/OralSurgery.webp"
+                            alt="image" />
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            
+          </div> -->
+    
+    
+            <div class="mx-auto max-w-screen-2xl px-4 md:px-8 lg:mt-0 mt-8">
+              <h2 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9 lg:invisible sm:visible">
+                Вот что говорят клиенты:
+              </h2>
+              <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper mt-8 ">
+             
+                <div class="swiper-wrapper text-base font-medium leading-6 text-gray-500 pb-8">
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Николаева Вера Степановна</div>
+                        <div class="date text-indigo-500">2023-05-03 18:35:17</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                С глубоким уважением выражаю благодарность Плешкову Дмитрию Геннадьевичу за его изумительную работу и золотые руки. Благодаря ему сейчас я могу не стесняясь улыбаться во весь рот с новыми прекрасными зубами. Выражаю благодарность всему персоналу клиники за уважительное, внимательное и профессиональное отношение к клиентам. Рекомендую вашу клинику всем своим друзьям и знакомым.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Наталья Михайловна Чечелева</div>
+                        <div class="date text-indigo-500">2021-09-05 18:31:37</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Выражаю искреннюю благодарность Плешкову Дмитрию Геннадьевичу и Пастбину Константину Геннадьевичу - врачи от Бога! Спасибо за чуткое отношение, за терпение. Спасибо медсёстрам, администратору Леночке. Удачи Вам, счастья и здоровья!
+                            </p>
+                        </div>
+                    </div>
+                    
+    
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Валентина Николаевна</div>
+                        <div class="date text-indigo-500">2020-02-25 09:18:04</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Действительно, Переведенцев Е.Ю. - доктор от Бога. Я даже не поняла, что зуб уже удален (верхняя "восьмерка"). Ничего себе современные технологии удаления! Ради такой работы стоило подождать 40 лет, чтобы избавиться от следующего проблемного "мудрого". Спасибо Вам огромное и низкий поклон за Ваши золотые руки, дорогой Евгений Юрьевич!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Светлана</div>
+                        <div class="date text-indigo-500">2017-12-18 20:33:15</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Огромная благодарность хирургу Переведенцеву Евгению Юрьевичу. Вообще непонятно когда он что сделал, вроде только посмотрел... Ну укол чуть почувствовала.... Действительно, Доктор с большой буквы, очень повезло, что к нему попала! Настоящий профессионал и интеллигентный человек, очень приятно к нему обращаться! СПАСИБО!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Любовь</div>
+                        <div class="date text-indigo-500">2017-10-07 14:49:20</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Очень хочу отметить отличную работу Переведенцева Евгения Юрьевича по удалению моих двух зубов мудрости. К врачу записалась по совету подруги, и была удивлена таким внимательным отношением врача к пациенту и такому профессиональному подходу! Специалист действительно по призванию! Буду обращаться и советовать всем знакомым. Огромное спасибо за Ваш труд!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Игнатьева Ольга</div>
+                        <div class="date text-indigo-500">2017-06-08 19:01:00</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Дмитрий Геннадьевич, Евгений Юрьевич, Анастасия Олеговна! Спасибо вам за ваши золотые руки и светлые головы! Вы большие профессионалы! Спасибо всему персоналу вашей, а теперь и моей клиники! Всегда внимательные, чуткие, искренне желающие помочь. Больше бы таких клиник и таких врачей! Всем рекомендую!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">аноним</div>
+                        <div class="date text-indigo-500">2017-04-13 20:33:37</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Переведенцев Евгений Юрьевич - отличный врач!!! С пониманием относится к пациентам, все делает очень аккуратно, даже укол трудно почувствовать. Побольше бы таких специалистов! Спасибо большое за оказанные услуги. P.S. Порадовало отношение всего персонала.
+                            </p>
+                        </div>
+                    </div>
+                    
+    
+                    
+                    <div class="swiper-slide">
+                        <div class="title text-turquoise30" data-swiper-parallax="-300">Кудряшова М.Ю.</div>
+                        <div class="date text-indigo-500">2017-03-10 20:40:34</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>
+                                Хочу выразить огромную благодарность всему коллективу стоматологической клиники за отличную работу и обслуживание клиентов. Особое спасибо Пастбину К.Г. и Плешкову Д.Г. за большой профессионализм!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+    
+              </div>
+            
+            
+          </div>
+    
+    
+          <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+          <!-- Initialize Swiper -->
+          <script>
+    
+    
+    
+            var swiper5 = new Swiper(".mySwiper5", {
+              grabCursor: true,
+              effect: "creative",
+              creativeEffect: {
+                prev: {
+                  shadow: true,
+                  translate: ["-125%", 0, -800],
+                  rotate: [0, 0, -90],
+                },
+                next: {
+                  shadow: true,
+                  translate: ["125%", 0, -800],
+                  rotate: [0, 0, 90],
+                },
+              },
+            });
+    
+          </script>
+          <!-- <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+    
+            <h4 class="mt-2 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">
+              Контактная информация
+            </h4>
+          <ul class="gap-6 mt-8 md:grid md:grid-cols-2">
+            <li class="mt-6 lg:mt-0  col-span-2 ">
+                <div class="flex ">
+                    <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full  ">
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                      Московская область, г. Ногинск
+    ул. Рогожская, 117, сек. 4
+                    </span>
+                </div>
+            </li>
+    
+            <li class="mt-6 lg:mt-0">
+                <div class="flex">
+                    <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                      8 (985) 731-73-27
+    
+    
+                    </span>
+                </div>
+            </li>
+            <li class="mt-6 lg:mt-0">
+                <div class="flex">
+                    <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-turquoise98 bg-turquoise30 rounded-full ">
+                        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="ml-4 text-base font-medium leading-6 text-gray-500 ">
+                      8 (967) 289-03-08
+                    </span>
+                </div>
+            </li>
+          </ul>
+          
+        </div> -->
+        </div>
+    
+      </div>
+      
+    </div>
+    
+    
+    </section>
+        
+    
+    
+    
+    
+    
+    <!-- About -->
+        <section class="bgmain  ">
+                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                  <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+                   
+                      <div class="h-64 overflow-hidden rounded-lg  shadow-lg md:h-auto md:pt-8">
+                        <img src="assets/images/about.jpg" loading="lazy" alt="Photo by Martin Sanchez" class="h-full w-full object-cover object-center" />
+                      </div>
+                    
+              
+                    <div class="md:pt-8">
+                      <p class="text-base font-semibold leading-6 text-turquoise30 uppercase">О нашей клинике</p>
+              
+                      <h3 class="mt-2 mb-4 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">“Ваш Дантист Плюс”
+                      </h3>
+              
+                      <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                        Прежде всего, это гарантированно высокое качество лечения. Все работающие у нас стоматологи – профессионалы высокого уровня, имеющие многолетний практический опыт работы. Этот факт подтверждают многочисленные пациенты, которые рекомендуют нас своим близким и друзьям.
+                        <br /><br />
+              
+                        Врачи нашей стоматологической клиники не просто уникальные специалисты и виртуозы своего дела, они — коллектив единомышленников, предлагающих комплексное решение любых по сложности задач. Мы не только предоставляем качественное лечение, но и создаем комфортную и уютную атмосферу для наших пациентов, которая помогает избавиться от неприятных мыслей. Посещение стоматологии «Ваш Дантист Плюс»– это настоящее удовольствие без страхов, боли и волнений.                  </p>
+              
+                      <h3 class="mt-2 mb-4 text-2xl font-extrabold leading-8 text-gray-900  sm:text-3xl sm:leading-9">Оборудование</h3>
+              
+                      <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                        Наша клиника оснащена современным медицинским оборудованием, а в работе мы используем лучшие лекарственные препараты, самые качественные, надежные и       <a href="safe.html" class="text-indigo-500 underline font-bold transition duration-100 hover:text-indigo-700 active:text-indigo-900">безопасные</a> 
+                        материалы. Если Вы заботитесь о здоровье и красоте своих зубов и хотите всегда получать качественное лечение, обращайтесь только к специалистам высокой квалификации. Нашим врачам Вы можете доверить любую проблему с зубами и ожидать исключительно качественного результата. Лечением зубов, протезированием, эстетической коррекцией зубов в нашей стоматологии занимаются профессиональные врачи, которые имеют богатый опыт работы. Обращаясь в нашу клинику, Вы всегда можете рассчитывать на максимальное внимание, понимание и доброжелательность персонала.
+                      </p>
+                      <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                        Стоматологическая клиника «Ваш Дантист Плюс» поможет вам обрести и сохранить здоровье, красоту и комфорт на долгие годы, а время лечения пройдет легко и приятно. Приходите, мы ждем вас!
+                      </p>
+                      <p class="mb-6 text-gray-500 sm:text-lg md:mb-8">
+                        Важнейшим принципом работы стоматологической клиники "Ваш Дантист Плюс" является Ваша безопасность. В нашей клинике внедрён целый комплекс мер по обеспечению безопасного лечения.                  </p>
+                    </div>
+                  </div>
+                </div>
+          </section>
+    
+          
+    <!-- servises -->
+          <section class="py-4 px-2 mx-auto max-w-screen-2xl sm:py-4 lg:px-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full">
+                <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
+                  <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                    <img src="assets/images/min/hygiene.webp"   alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                    <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Профилактика и гигиена</h3>
+                  </a>
+                </div>
+                <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-stone-50">
+                  <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4">
+                    <img src="assets/images/min/paradontology.webp"    alt="" class="absolute inset-0 h-full w-full object-cover  group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                    <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Пародонтология</h3>
+                  </a>
+                  <div class="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+                    <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                      <img src="assets/images/min/endodontics.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-125 transition-transform duration-500 ease-in-out">
+                      <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                      <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Эндодонтия</h3>
+                    </a>
+                    <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                      <img src="assets/images/min/therapy.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                      <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                      <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Терапия</h3>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-sky-50 h-auto md:h-full flex flex-col">
+                  <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                    <img src="assets/images/min/consult.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                    <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Консультация</h3>
+                  </a>
+                </div>
+    
+                <div class="col-span-2 sm:col-span-1 md:col-span-1 bg-gray-50 h-auto md:h-full flex flex-col">
+                    <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                      <img src="assets/images/min/whitening.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                      <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                      <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Отбеливание</h3>
+                    </a>
+                  </div>
+            
+            
+                  <div class="col-span-2 sm:col-span-2 md:col-span-2 bg-stone-50">
+                    <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4">
+                      <img src="assets/images/min/orthopedia.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                      <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                      <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Ортопедия</h3>
+                    </a>
+            
+                    
+                    <div class="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+                      <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                        <img src="assets/images/min/OralSurgery.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                        <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Хирургия</h3>
+                      </a>
+                      <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+                        <img src="assets/images/min/implantation.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                        <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Имплантация</h3>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
+                    <a href="" class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+                      <img src="assets/images/min/MouthGuard.webp"    alt="" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                      <div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+                      <h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl">Спортивные каппы</h3>
+                    </a>
+                  </div>
+            </div>
+    
+    <!---------------------------------------------------------------------------------- -->
+    
+    
+    
+    
+          </section>
+    </main>
+    
+    
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad490927f80a88c22496609ef8f71beaa6bd7238fc096cc913e5427b9555a1dc5&amp;source=constructor" title="map" lazy="loaded" width="100%" height="400" frameborder="0"></iframe>
+    
+    
+    <div class="bgg pt-4 sm:pt-10 lg:pt-12">
+      
+        <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div class="flex flex-col items-center border-t pt-6">
+            <!-- nav - start -->
+            <nav class="mb-4 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
+              <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+              <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+                <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+                <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+                <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a>
+                <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+                <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+                <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+                <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+            </nav>
+                    <!-- nav - end -->
+      
+    
+          </div>
+      
+          <div class="py-8 text-center text-sm text-white">© 2024 - lfoside.</div>
+        </footer>
+      </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          speed: 600,
+          parallax: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        
+        });
+      </script>
+    
+    <script>
+      console.clear();
+    
+    const html = document.documentElement;
+    const toggle = document.getElementById("toggle");
+    const circle = document.getElementById("bg-circle");
+    const circleWidth = circle.clientWidth;
+    
+    // Math calcul to get Height, Width, Diagonal and Circle Radius
+    
+    const getVpdr = () => {
+      const vph = Math.pow(html.offsetHeight, 2); // Height
+      const vpw = Math.pow(html.offsetWidth, 2); // Width
+      const vpd = Math.sqrt(vph + vpw); // Diagonal
+      return (vpd * 2) / circleWidth; // Circle radius
+    };
+    
+    const openNavbar = () => {
+      const openTimeline = new TimelineMax();
+      openTimeline.to(".navbar", 0, { display: "flex" });
+      openTimeline.to("#bg-circle", 1.5, {scale: getVpdr(),ease: Expo.easeInOut});
+      openTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 25, opacity: 0 },{ y: 0, opacity: 1 },0.1,1);
+    };
+    
+    const closeNavbar = () => {
+      const closeTimeline = new TimelineMax();
+      closeTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 0, opacity: 1, delay: 0.5 },{ y: 25, opacity: 0 },-0.1);
+      closeTimeline.to("#bg-circle", 1, {scale: 0,ease: Expo.easeInOut,delay: -0.5});
+      closeTimeline.to(".navbar", 0, { display: "none" });
+    };
+    
+    let isOpen = false;
+    
+    toggle.onclick = function () {
+      if (isOpen) {
+        this.classList.remove("active");
+        closeNavbar();
+      } else {
+        this.classList.add("active");
+        openNavbar();
+      }
+      isOpen = !isOpen;
+    };
+    
+    // On windows resize, recalcule circle radius and update
+    
+    window.onresize = () => {
+      if (isOpen) {
+        gsap.to("#bg-circle", 1, { scale: getVpdr(), ease: Expo.easeInOut });
+      }
+    };
+    
+    
+    </script>
+
+   
+<script>
+ 
+ (function () {
+  'use strict';
+
+  var heroClassAnimate = 'animate';
+  
+  var Hero = {
+    init: function () {
+      this.setDOMSelectors();
+      this.render();
+    },
+
+
+    setDOMSelectors: function () {
+      this.header = document.querySelector('.js-header');
+      this.heroContainer = document.querySelector('.js-hero');
+    },
+
+    render: function () {
+      var self = this;
+
+      setTimeout(function () {
+    self.heroContainer.classList.add(heroClassAnimate);
+      }, 1);
+    }
+  };
+
+
+  Hero.init();
+})();
+
+</script>
+
+   
+
+</body>
+
+</html>

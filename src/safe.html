@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/output.css" type="text/css" rel="stylesheet">
+    <title>Ваш Дантист</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.4/cdn.js"></script>
+
+</head>
+
+<body  id="content" x-data="{ showTopMenu: true }" @scroll.window="showTopMenu = (window.scrollY < 50)">
+
+  <header>
+
+  
+      <!-- Main Menu -->
+      <nav class="bg-turquoise30/50 shadow-md fixed w-full z-20 backdrop-blur-lg transition-all duration-300" x-data="{ open: false }">
+          <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+              <div class="text-xl text-turquoise98 font-bold">Ваш Дантист</div>
+              <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+                <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+                  <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+                  <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+                  <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a>
+                  <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+                  <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+                  <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+                  <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+              </div>
+  
+              <button class="w-14 h-14 relative focus:outline-none bg-teal-600 rounded md:hidden navbar-toggle" id="toggle" @click="open = !open">
+                  <div class="block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <span class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
+                      <span class="block absolute h-0.5 w-5 text-white bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': open }"></span>
+                      <span class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+                  </div>
+              </button>
+          </div>
+  
+          <div class="navbar pt-60 md:hidden ">
+              <ul>
+                  <li><a href="index.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a></li>
+                  <li><a href="about.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a></li>
+                  <li><a href="doctors.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a></li>
+                  <li><a href="otzivi.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a></li>
+                  <li><a href="price.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a></li>
+                  <li><a href="safe.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-2/3 after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Безопасность</a></li>
+                  <li><a href="faq.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a></li>
+                  <li><a href="slovar.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a></li>
+                  <li><a href="contacts.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a></li>
+              </ul>
+
+          </div>
+          <div id="bg-circle"></div>
+        </div>
+
+      </nav>
+  </header>
+
+
+  <div class="py-6 sm:py-8 lg:py-12 ">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8 mt-10 lg:mt-20">
+      <!-- text - start -->
+      <br class="mb-10 md:mb-16">
+        <h2 class="mb-4 text-center text-2xl font-bold text-gray-700 md:mb-6 lg:text-3xl">Безопасность на приеме
+        </h2>
+  
+        <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Важнейшим принципом работы стоматологической клиники "Ваш Дантист Плюс" является Ваша безопасность. В нашей клинике внедрён целый комплекс мер по обеспечению безопасного лечения. Наш персонал с точностью соблюдает инструкции по дезинфекции и стерилизации медицинских инструментов и медицинской аппаратуры. Для каждого пациента предоставляется индивидуальный набор стерильных инструментов. Садясь в стоматологическое кресло, Вы можете быть уверены в стерильности всего, что соприкасается с Вашим организмом .У нас работают прекрасные специалисты, способные профессионально оказать любую, даже самую сложную стоматологическую помощь.</p></br>
+       
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Пациент хочет видеть и чувствовать заботу о своём здоровье, а также быть уверенным в безопасности на приеме у стоматолога. Поэтому наша задача – обеспечить эту безопасность. Чтобы быть уверенными в безопасности на приеме, пациентам необходимо знать, каковы критерии такой безопасности. </p></br>
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Уже в регистратуре клиники пациенту предлагают надеть бахилы, в холле и кабинетах соблюдается идеальная чистота, а на рабочих столах врача и ассистента – безупречный порядок. Для обеспечения безопасности должен соблюдаться следующий порядок при приеме пациента:</p></br>
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Перед началом осмотра пациенту предлагается одноразовый стаканчик с дезинфицирующей таблеткой для полоскания рта. Затем ему надевают индивидуальную салфетку-фартук с косметической салфеткой. </p></br>
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Для снятия тревожности врач должен рассказать пациенту о предстоящей манипуляции, характере сопутствующих ощущений, которые пациент при этом может испытывать, и их длительности. После лечения должна проводиться уборка - обработка наконечников, сбрасывание перчаток в использованный стакан и т.д.</p></br>
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Клиника «Ваш Дантист Плюс» выполняет требования программы «Антиспид» и «Антигепатит», в которую входит двукратная обработка наконечников дезинфицирующими салфетками, их обработка в «Ассистине» и стерилизация. Работа с наконечниками происходит только с водой, что не дает распространяться инфицированной зубной пыли по кабинету. При этом пациент не чувствует специфического запаха, который может возникать при работе без воды.</p></br>
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Мы применяем аппараты быстрого автоклавирования инструментария и одноразовые средства индивидуальной гигиены, поэтому чистота и стерильность идеальны. </p></br>
+          <p class="mx-auto max-w-screen-md text-start text-gray-500 md:text-lg">Для обеспечения безопасности пациентов и персонала, в клинике действуют правила: регулярная стирка униформы персонала, маска у врача и ассистента с защитным экраном, одноразовые хирургические и гигиенические пакеты, ежегодные медосмотры персонала. </p></br>
+
+
+      
+
+      </div>
+ 
+    </div>
+  
+
+
+
+
+
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad490927f80a88c22496609ef8f71beaa6bd7238fc096cc913e5427b9555a1dc5&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+
+
+
+
+    <div class="bgg pt-4 sm:pt-10 lg:pt-12">
+  
+      <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div class="flex flex-col items-center border-t pt-6">
+          <!-- nav - start -->
+          <nav class="mb-4 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
+            <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+            <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+              <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+              <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+              <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Цены</a>
+              <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+              <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+              <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+              <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+          </nav>
+                  <!-- nav - end -->
+    
+  
+        </div>
+    
+        <div class="py-8 text-center text-sm text-white">© 2024 - lfoside.</div>
+      </footer>
+    </div>
+
+
+   
+<script>
+  console.clear();
+
+const html = document.documentElement;
+const toggle = document.getElementById("toggle");
+const circle = document.getElementById("bg-circle");
+const circleWidth = circle.clientWidth;
+
+// Math calcul to get Height, Width, Diagonal and Circle Radius
+
+const getVpdr = () => {
+  const vph = Math.pow(html.offsetHeight, 2); // Height
+  const vpw = Math.pow(html.offsetWidth, 2); // Width
+  const vpd = Math.sqrt(vph + vpw); // Diagonal
+  return (vpd * 2) / circleWidth; // Circle radius
+};
+
+const openNavbar = () => {
+  const openTimeline = new TimelineMax();
+  openTimeline.to(".navbar", 0, { display: "flex" });
+  openTimeline.to("#bg-circle", 1.5, {scale: getVpdr(),ease: Expo.easeInOut});
+  openTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 25, opacity: 0 },{ y: 0, opacity: 1 },0.1,1);
+};
+
+const closeNavbar = () => {
+  const closeTimeline = new TimelineMax();
+  closeTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 0, opacity: 1, delay: 0.5 },{ y: 25, opacity: 0 },-0.1);
+  closeTimeline.to("#bg-circle", 1, {scale: 0,ease: Expo.easeInOut,delay: -0.5});
+  closeTimeline.to(".navbar", 0, { display: "none" });
+};
+
+let isOpen = false;
+
+toggle.onclick = function () {
+  if (isOpen) {
+    this.classList.remove("active");
+    closeNavbar();
+  } else {
+    this.classList.add("active");
+    openNavbar();
+  }
+  isOpen = !isOpen;
+};
+
+// On windows resize, recalcule circle radius and update
+
+window.onresize = () => {
+  if (isOpen) {
+    gsap.to("#bg-circle", 1, { scale: getVpdr(), ease: Expo.easeInOut });
+  }
+};
+
+
+</script>
+
+   
+
+</body>
+
+</html>

@@ -1,0 +1,646 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./assets/css/output.css" type="text/css" rel="stylesheet">
+    <title>Ваш Дантист</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+<!-- Alpine Plugins -->
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+ 
+<!-- Alpine Core -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body  id="content" x-data="{ showTopMenu: true }" @scroll.window="showTopMenu = (window.scrollY < 50)">
+
+  <header>
+
+  
+      <!-- Main Menu -->
+      <nav  class="bg-turquoise30/50 shadow-md fixed w-full z-20 backdrop-blur-lg transition-all duration-300" x-data="{ open: false }">
+          <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+              <div class="text-xl text-turquoise98 font-bold">Ваш Дантист</div>
+              <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+                <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+                  <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+                  <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+                  <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Цены</a>
+                  <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+                  <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+                  <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+                  <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+              </div>
+  
+              <button class="w-14 h-14 relative focus:outline-none bg-teal-600 rounded md:hidden navbar-toggle" id="toggle" @click="open = !open">
+                  <div class="block w-5 absolute left-6 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <span class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
+                      <span class="block absolute h-0.5 w-5 text-white bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': open }"></span>
+                      <span class="block absolute h-0.5 w-7 text-white bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+                  </div>
+              </button>
+          </div>
+  
+          <div class="navbar pt-60 md:hidden ">
+              <ul>
+                  <li><a href="index.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a></li>
+                  <li><a href="about.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a></li>
+                  <li><a href="doctors.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a></li>
+                  <li><a href="otzivi.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a></li>
+                  <li><a href="price.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-2/3 after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Цены</a></li>
+                  <li><a href="safe.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a></li>
+                  <li><a href="faq.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a></li>
+                  <li><a href="slovar.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a></li>
+                  <li><a href="contacts.html" class="text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a></li>
+              </ul>
+
+          </div>
+          <div id="bg-circle"></div>
+        </div>
+
+      </nav>
+  </header>
+
+
+
+  <div class="py-6 sm:py-8 lg:py-12 bgmain">
+    <div class="mx-auto max-w-screen-2xl px-4 md:px-8 mt-12 lg:mt-12">
+      <!-- text - start -->
+        <h2 class="mb-4 text-center text-2xl font-bold text-gray-700 md:mb-6 lg:text-3xl">Цены</h2>
+  
+        <p class="mx-auto max-w-screen-lg text-center text-gray-500 md:text-lg"> Мы используем только высококачественное оборудование, равно как и материалы и инструменты, поставляемые из Европы.
+
+          Подробности о стоимости оказываемых услуг в нашей стоматологии уточняйте у администратора.</p>
+      
+
+
+          <div class="container mt-8">
+            <div class="flex justify-center">
+                <div class="w-full max-w-screen-lg">
+                    <div class="overflow-x-auto">
+
+                      <div class="w-full divide-y divide-slate-300 overflow-hidden rounded-xl border border-slate-300 bg-slate-100/40 text-slate-700 dark:divide-slate-700 dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-300">
+                        <div x-data="{ isExpanded: false }" class="divide-y divide-slate-300 dark:divide-slate-700">
+                            <button id="controlsAccordionItemOne" type="button" class="flex w-full items-center justify-between text-white gap-4 bg-turquoise30 p-4 text-left underline-offset-2 hover:bg-turquoise30/75 focus-visible:bg-turquoise30/75 focus-visible:underline focus-visible:outline-none" aria-controls="accordionItemOne" @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+                                Терапия
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                                </svg>
+                            </button>
+                            <div x-cloak x-show="isExpanded" id="accordionItemOne" role="region" aria-labelledby="controlsAccordionItemOne" x-collapse>
+                              <table class="w-full table-auto mb-8">
+
+                                <tbody>
+    
+                                    <!-- Dental Procedures and Prices -->
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Профессиональная консультация специалистов-стоматологов с составлением комплексного плана лечения
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            500 руб.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Анестезия
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            1000 руб.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Лечение кариеса
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            4800 руб.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Пульпит
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            От 5000 до 7500 руб.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Периодонтит( 1 посещение)
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            От 4000 до 7000 руб.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Периодонтит (окончательное лечение)
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            От 2500 до 3000 руб.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                            Художественная реставрация(прямой метод изготовления винира)
+                                        </td>
+                                        <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                            5800 руб.
+                                        </td>
+                                    </tr>
+                                    <!-- End of Dental Procedures and Prices -->
+                                </tbody>
+                            </table>
+    
+                            </div>
+                        </div>
+                        <div x-data="{ isExpanded: false }" class="divide-y divide-slate-300 dark:divide-slate-700">
+                            <button id="controlsAccordionItemTwo" type="button" class="flex w-full items-center justify-between gap-4 bg-turquoise30 p-4 text-left text-white underline-offset-2 hover:bg-turquoise30/75 focus-visible:bg-slate-100/75 focus-visible:underline focus-visible:outline-none " aria-controls="accordionItemTwo" @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+                              Ортопедия                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                                </svg>
+                            </button>
+                            <div x-cloak x-show="isExpanded" id="accordionItemTwo" role="region" aria-labelledby="controlsAccordionItemTwo" x-collapse>
+                                <div class=" text-sm sm:text-base text-pretty">
+                                  <table class="w-full table-auto mb-8">
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Профессиональная консультация врача-ортопеда
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                500
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Коронка металлокерамическая
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                от 8 500 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Коронка цельнолитая
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                От 4000 до 6000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Коронка пластмассовая временная
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                от 2000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Протез полный съемный
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                От 12000 до 14000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Частичный съемный протез
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                12000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Косметический съемный пластиночный протез
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                4800 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Съемный протез с бюгельным армированием
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                15800 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Бюгель с замковым креплением МК1 (односторонний)
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                От 50000 до 65000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Бюгель с замковым креплением МК1(двухсторонний)
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                От 65 000 до 80000 руб.
+                                            </td> 
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Бюгельный протез с кламмерной фиксацией
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                30000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Шинирующий бюгельный съемный протез
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                45000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Коронка на имплантат
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                от 25000 руб.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                                Винир
+                                            </td>
+                                            <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                                от 15000 руб.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>                                </div>
+                            </div>
+                        </div>
+                        <div x-data="{ isExpanded: false }" class="divide-y divide-slate-300 dark:divide-slate-700">
+                            <button id="controlsAccordionItemThree" type="button" class="flex w-full items-center justify-between gap-4 bg-turquoise30 p-4 text-left text-white underline-offset-2 hover:bg-turquoise30/75 focus-visible:bg-slate-100/75 focus-visible:underline focus-visible:outline-none " aria-controls="accordionItemThree" @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+                              Пародонтология
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                                </svg>
+                            </button>
+                            <div x-cloak x-show="isExpanded" id="accordionItemThree" role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
+                                <div class=" text-sm sm:text-base text-pretty">
+                      <!-- Пародонтология Table -->
+                      <table class="w-full table-auto mb-8">
+ 
+                        <tbody>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                    Профессиональная гигиена «СТАНДАРТ»(снятие камней + Air-Flow)
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                    5500 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                    Профессиональная гигиена «МАКСИМУМ»(снятие камней + Air-Flow + фторирование)
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                    6000 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                    Ультразвуковое снятие зубных отложений /1 зуб
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                    200 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                    Air-Flow /зубы одной челюсти 
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                    1700 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                    Процедура отбеливания зубов ZOOM-3
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                    25000 руб.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                                </div>
+                            </div>
+                        </div>
+                        <div x-data="{ isExpanded: false }" class="divide-y divide-slate-300 dark:divide-slate-700">
+                          <button id="controlsAccordionItemThree" type="button" class="flex w-full items-center justify-between gap-4 bg-turquoise30 p-4 text-left text-white underline-offset-2 hover:bg-turquoise30/75 focus-visible:bg-slate-100/75 focus-visible:underline focus-visible:outline-none " aria-controls="accordionItemThree" @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Хирургия
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                              </svg>
+                          </button>
+                          <div x-cloak x-show="isExpanded" id="accordionItemThree" role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
+                              <div class="text-sm sm:text-base text-pretty">
+                      <!-- Хирургия Table -->
+                      <table class="w-full table-auto mb-8">
+
+                        <tbody>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Профессиональная консультация
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    500 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Удаление простое (1 зуб)
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    от 2500 до 4000 руб. (без учета прочих манипуляций: анестезия, швы, коллапол) 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Удаление сложное (1 зуб)
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    от 4000 до 5000 руб. (без учета прочих манипуляций: анестезия, швы, коллапол)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Кюретаж
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    600 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Гингивоэктомия
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    1200 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Лоскутная операция (резекция подслизистой оболочки 3-х зубов)
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    3800 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Иссечение капюшона
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    2000 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Цистэоктомия (1 зуб)
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    3500 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Удаление экзостоза
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    2000 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Пластика уздечки верхней губы
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    2500 руб.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium whitespace-normal break-words">
+                                    Пластика уздечки языка
+                                </td>
+                                <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium whitespace-normal break-words">
+                                    2000 руб.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>                              </div>
+                          </div>
+
+                      </div>
+                      <div x-data="{ isExpanded: false }" class="divide-y divide-slate-300 dark:divide-slate-700">
+                        <button id="controlsAccordionItemThree" type="button" class="flex w-full items-center justify-between gap-4 bg-turquoise30 text-white p-4 text-left underline-offset-2 hover:bg-turquoise30/75 focus-visible:bg-slate-100/75 focus-visible:underline focus-visible:outline-none " aria-controls="accordionItemThree" @click="isExpanded = ! isExpanded" :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'" :aria-expanded="isExpanded ? 'true' : 'false'">
+                          Имплантация
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true" :class="isExpanded  ?  'rotate-180'  :  ''">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItemThree" role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
+                            <div class="text-sm sm:text-base text-pretty">
+                      <table class="w-full table-auto">
+
+                          <tbody>
+                              <tr>
+                                  <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                      Установка импланта
+                                  </td>
+                                  <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                      32000 руб.
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                      Установка формирователя десны
+                                  </td>
+                                  <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                      5000 руб.
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                      Вестибулопластика
+                                  </td>
+                                  <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                      3800 руб.
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                      Работа по подсадке костного материала
+                                  </td>
+                                  <td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+                                      25000 руб.
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+                                    Гайромотомия с подсадко материала
+</td>
+<td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+25000 руб.
+</td>
+</tr>
+<tr>
+<td class="text-dark border-b border-l border-[#E8E8E8] bg-[#F3F6FF] py-5 px-2 text-left text-base font-medium">
+Удаление импланта
+</td>
+<td class="text-dark border-b border-[#E8E8E8] bg-white py-5 px-2 text-center text-base font-medium">
+8000 руб.
+</td>
+</tr>
+</tbody>
+</table>
+                                 </div>
+                        </div>
+
+                    </div>
+                    </div>
+                    
+
+
+
+                      
+
+
+      
+
+      
+
+      
+
+
+      
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad490927f80a88c22496609ef8f71beaa6bd7238fc096cc913e5427b9555a1dc5&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+
+
+    <div class="bgg pt-4 sm:pt-10 lg:pt-12 ">
+  
+      <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+        <div class="flex flex-col items-center border-t pt-6">
+          <!-- nav - start -->
+          <nav class="mb-4 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
+            <a href="index.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Главная</a>                  
+            <a href="about.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">О Клинике</a>
+              <a href="doctors.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Наш Коллектив</a>
+              <a href="otzivi.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Отзывы</a>
+              <a href="price.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-full after:bottom-0 after:left-0 after:transition-all after:duration-300 cursor-pointer">Цены</a>
+              <a href="safe.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Безопасность</a>
+              <a href="faq.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Вопросы и Ответы</a>
+              <a href="slovar.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Словарь</a>
+              <a href="contacts.html" class="px-3 py-1 text-turquoise98 relative after:bg-white after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 cursor-pointer">Контакты</a>
+          </nav>
+                  <!-- nav - end -->
+    
+  
+        </div>
+    
+        <div class="py-8 text-center text-sm text-white">© 2024 - lfoside.</div>
+      </footer>
+    </div>
+
+
+   
+<script>
+  console.clear();
+
+const html = document.documentElement;
+const toggle = document.getElementById("toggle");
+const circle = document.getElementById("bg-circle");
+const circleWidth = circle.clientWidth;
+
+// Math calcul to get Height, Width, Diagonal and Circle Radius
+
+const getVpdr = () => {
+  const vph = Math.pow(html.offsetHeight, 2); // Height
+  const vpw = Math.pow(html.offsetWidth, 2); // Width
+  const vpd = Math.sqrt(vph + vpw); // Diagonal
+  return (vpd * 2) / circleWidth; // Circle radius
+};
+
+const openNavbar = () => {
+  const openTimeline = new TimelineMax();
+  openTimeline.to(".navbar", 0, { display: "flex" });
+  openTimeline.to("#bg-circle", 1.5, {scale: getVpdr(),ease: Expo.easeInOut});
+  openTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 25, opacity: 0 },{ y: 0, opacity: 1 },0.1,1);
+};
+
+const closeNavbar = () => {
+  const closeTimeline = new TimelineMax();
+  closeTimeline.staggerFromTo(".navbar ul li",0.5,{ y: 0, opacity: 1, delay: 0.5 },{ y: 25, opacity: 0 },-0.1);
+  closeTimeline.to("#bg-circle", 1, {scale: 0,ease: Expo.easeInOut,delay: -0.5});
+  closeTimeline.to(".navbar", 0, { display: "none" });
+};
+
+let isOpen = false;
+
+toggle.onclick = function () {
+  if (isOpen) {
+    this.classList.remove("active");
+    closeNavbar();
+  } else {
+    this.classList.add("active");
+    openNavbar();
+  }
+  isOpen = !isOpen;
+};
+
+// On windows resize, recalcule circle radius and update
+
+window.onresize = () => {
+  if (isOpen) {
+    gsap.to("#bg-circle", 1, { scale: getVpdr(), ease: Expo.easeInOut });
+  }
+};
+
+
+</script>
+
+   
+
+</body>
+
+</html>
